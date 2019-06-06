@@ -38,8 +38,14 @@ void backward_bias(matrix delta, matrix db)
 matrix forward_connected_layer(layer l, matrix in)
 {
     // TODO: 3.1 - run the network forward
-    matrix out = make_matrix(in.rows, l.w.cols); // Going to want to change this!
-
+    matrix out = make_matrix(in.rows, l.w.cols); // Going to want to change this!    int i,j;
+    for(i=0; i<out.rows; ++i){
+        for(j=0; j<out.cols; ++j){
+            for(k=0; k<a.cols; ++k){
+                c.data[i*c.cols+j] += in.data[i*a.cols+k]* b.data[k*b.cols+j]
+            
+        }
+    }
     // Saving our input and output and making a new delta matrix to hold errors
     // Probably don't change this
     l.in[0] = in;
